@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2692b77cb294cd8a36f182d1e6cb5e, type: 3}
+  m_Name: NormalWheel
+  m_EditorClassIdentifier: 
+  slices:
+  - sliceType: 1
+    icon: {fileID: 21300000, guid: f30e0a95b1ed844a29771112ad63ad93, type: 3}
+    amount: 0
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: ed34edc2c217c423b8bb703d068ccd40, type: 3}
+    amount: 0
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: d4a01204571aa45f186dcb9bbdfbf423, type: 3}
+    amount: 500
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 3d7cfb3da4c884474b355c71cf0eeb5a, type: 3}
+    amount: 0
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 67f422c6ef2354157806c0c8c424de82, type: 3}
+    amount: 0
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: d4f3fc9875c0a4c91967156a3f175b84, type: 3}
+    amount: 0
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: c3505e97658a54c5c85becc4a2fc7bc1, type: 3}
+    amount: 0
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 925b5ab37096e41f9b7d93857993ab80, type: 3}
+    amount: 0

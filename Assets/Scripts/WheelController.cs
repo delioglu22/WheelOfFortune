@@ -15,6 +15,12 @@ public class WheelController : MonoBehaviour
     [Header("Data")]
     public WheelData activeWheelData;
     public GameObject slicePrefab;
+    public event System.Action<SliceData> OnSpinCompleted;
+    [Header("UI Visuals")]
+    [SerializeField] private Image wheelBaseImage;
+    [SerializeField] private Image indicatorImage;
+    [SerializeField] private Image panelZoneImage;
+    
 
 
     private void OnValidate()
@@ -37,11 +43,23 @@ public class WheelController : MonoBehaviour
     }
     private void Start()
     {
-        GenerateWheel();
     }
 
-    private void GenerateWheel()
+    public void GenerateWheel()
     {
+        if (activeWheelData.wheelBaseSprite != null)
+        {
+            wheelBase.GetComponent<Image>().sprite = activeWheelData.wheelBaseSprite;
+        }
+        if (indicatorImage != null && activeWheelData.indicatorSprite != null)
+        {
+            indicatorImage.sprite = activeWheelData.indicatorSprite;
+        }
+        if (panelZoneImage != null && activeWheelData.panelZoneSprite != null)
+        {
+            panelZoneImage.sprite = activeWheelData.panelZoneSprite;
+        }
+        
         foreach (Transform child in wheelBase)
         {
             Destroy(child.gameObject);
@@ -68,7 +86,7 @@ public class WheelController : MonoBehaviour
             TextMeshProUGUI amountText = newSlice.GetComponentInChildren<TextMeshProUGUI>();
             if (amountText != null)
             {
-                if (data.amount == 0)
+                if (data.amount < 2)
                     amountText.text = "";
                 else
                 
@@ -95,7 +113,12 @@ public class WheelController : MonoBehaviour
         {
                 isSpinning = false;
                 spinButton.interactable = true;
-                Debug.Log($"Çark durdu! Kazanan dilim (0-7): {randomSliceIndex}");
+
+                SliceData wonSlice = activeWheelData.slices[randomSliceIndex];
+                OnSpinCompleted?.Invoke(wonSlice);
         });
     }
+
+     
+
 }

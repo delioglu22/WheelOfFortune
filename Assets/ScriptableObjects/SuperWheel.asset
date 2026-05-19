@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2692b77cb294cd8a36f182d1e6cb5e, type: 3}
+  m_Name: SuperWheel
+  m_EditorClassIdentifier: 
+  wheelBaseSprite: {fileID: 21300000, guid: 4aa1a8365693f4ee98e8a1f67231c64c, type: 3}
+  indicatorSprite: {fileID: 21300000, guid: f65dccd954edc4165ab2262ad8378ab4, type: 3}
+  panelZoneSprite: {fileID: 21300000, guid: bef05e55477704a9f8088c98131e1ee1, type: 3}
+  slices:
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: d4a01204571aa45f186dcb9bbdfbf423, type: 3}
+    amount: 50000
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 972a6c5a80b4f44faa31b8bcce8bab89, type: 3}
+    amount: 1000
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: ed34edc2c217c423b8bb703d068ccd40, type: 3}
+    amount: 1
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: d4f3fc9875c0a4c91967156a3f175b84, type: 3}
+    amount: 1
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: c3505e97658a54c5c85becc4a2fc7bc1, type: 3}
+    amount: 1
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 925b5ab37096e41f9b7d93857993ab80, type: 3}
+    amount: 1
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 780bd929747704632a12110866dcbc7a, type: 3}
+    amount: 1
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 123332289d21e4a0fb9688422d3378b2, type: 3}
+    amount: 2

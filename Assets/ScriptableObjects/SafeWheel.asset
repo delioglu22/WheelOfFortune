@@ -10,32 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c2692b77cb294cd8a36f182d1e6cb5e, type: 3}
-  m_Name: NormalWheel
+  m_Name: SafeWheel
   m_EditorClassIdentifier: 
-  wheelBaseSprite: {fileID: 21300000, guid: 14ff4ec2f3d5e439f9453e3b99b51ce0, type: 3}
-  indicatorSprite: {fileID: 21300000, guid: 4003fdca8756e4160b2d08af7d114580, type: 3}
-  panelZoneSprite: {fileID: 21300000, guid: 6a99c06a35022440da5ece754f30da06, type: 3}
+  wheelBaseSprite: {fileID: 21300000, guid: de1d58f420bdd415483a4174ed214f20, type: 3}
+  indicatorSprite: {fileID: 21300000, guid: 6e2b20aa5fa92495c8391255ad653ecf, type: 3}
+  panelZoneSprite: {fileID: 21300000, guid: 9a94074c0664a43e49657286f0345b0a, type: 3}
   slices:
-  - sliceType: 1
-    icon: {fileID: 21300000, guid: f30e0a95b1ed844a29771112ad63ad93, type: 3}
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: d4a01204571aa45f186dcb9bbdfbf423, type: 3}
+    amount: 2000
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 1b62fee957ad540c48c2a5757ac58d1b, type: 3}
+    amount: 3
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 7e4835ca59a5b488c81b295901f03133, type: 3}
     amount: 1
   - sliceType: 0
     icon: {fileID: 21300000, guid: 972a6c5a80b4f44faa31b8bcce8bab89, type: 3}
+    amount: 20
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 67f422c6ef2354157806c0c8c424de82, type: 3}
+    amount: 1
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 482d88af1a1db45efbb88fab849d504d, type: 3}
     amount: 5
   - sliceType: 0
-    icon: {fileID: 21300000, guid: d4a01204571aa45f186dcb9bbdfbf423, type: 3}
-    amount: 500
-  - sliceType: 0
-    icon: {fileID: 21300000, guid: 1b62fee957ad540c48c2a5757ac58d1b, type: 3}
-    amount: 1
-  - sliceType: 0
-    icon: {fileID: 21300000, guid: 0010e6711aa83416cbaa0f3e2265ca40, type: 3}
-    amount: 2
-  - sliceType: 0
-    icon: {fileID: 21300000, guid: 3d7cfb3da4c884474b355c71cf0eeb5a, type: 3}
-    amount: 1
-  - sliceType: 0
-    icon: {fileID: 21300000, guid: fbc2143f6206d453b9affdb58e57ed4e, type: 3}
+    icon: {fileID: 21300000, guid: 3f8ecd5cfcf8a4cd38edaa26f84677d1, type: 3}
     amount: 1
   - sliceType: 0
     icon: {fileID: 21300000, guid: 3d46a45b76ad4465b8991f3c38aaa807, type: 3}

@@ -55,11 +55,7 @@ public class WheelController : MonoBehaviour
         {
             indicatorImage.sprite = activeWheelData.indicatorSprite;
         }
-        if (panelZoneImage != null && activeWheelData.panelZoneSprite != null)
-        {
-            panelZoneImage.sprite = activeWheelData.panelZoneSprite;
-        }
-        
+
         foreach (Transform child in wheelBase)
         {
             Destroy(child.gameObject);
@@ -103,9 +99,9 @@ public class WheelController : MonoBehaviour
         spinButton.interactable = false;
 
         int randomSliceIndex = Random.Range(0, activeWheelData.slices.Count);
-        float spinAngle = 360f / 8f;
+        float spinAngle = 360f / activeWheelData.slices.Count;
 
-        float targetAngle = -spinAngle * randomSliceIndex;
+        float targetAngle = spinAngle * randomSliceIndex;
         float totalRotation = targetAngle - (spinLoops * 360f);
         
         wheelBase.DORotate(new Vector3(0, 0, totalRotation), spinDuration, RotateMode.FastBeyond360)

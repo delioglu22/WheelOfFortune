@@ -9,7 +9,6 @@ public class WheelData : ScriptableObject
     [Header("Visuals")]
     public Sprite wheelBaseSprite;
     public Sprite indicatorSprite;
-    public Sprite panelZoneSprite;
     [Header("Slices")]
     public List<SliceData> slices = new List<SliceData>();
 }

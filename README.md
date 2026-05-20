@@ -51,5 +51,3 @@ To build the APK for Android devices:
 4. You can find the latest stable `.apk` in the [Releases](../../releases) section of this repository.
 
 ---
-
-*Developed as a showcase of UI architecture, scriptable objects, and mobile game progression loops.*

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI superZoneText;
     [SerializeField] private Button leaveButton;
     [SerializeField] private WheelController wheelController;
+    [SerializeField] private ZoneBarController zoneBarController;
     private int totalReward = 0;
 
     [Header("Wheel Data")]
@@ -58,6 +59,9 @@ public class GameManager : MonoBehaviour
         if (superZoneText == null)
             superZoneText = transform.root.Find("Canvas/ui_container_wheel/RightSection Panel/ui_panel_milestones/ui_superzone/Text (TMP)")
                                 ?.GetComponent<TextMeshProUGUI>();
+
+        if (zoneBarController == null)
+            zoneBarController = FindObjectOfType<ZoneBarController>();
     }
     private void Start()
     {
@@ -87,6 +91,9 @@ public class GameManager : MonoBehaviour
     private void UpdateZone()
     {
         zoneText.text = "ZONE " + currentZone;
+
+        if (zoneBarController != null)
+            zoneBarController.GenerateZoneBar(currentZone);
 
         if (safeZoneText != null)
         {

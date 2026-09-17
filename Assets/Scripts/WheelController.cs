@@ -33,7 +33,7 @@ public class WheelController : MonoBehaviour
 
         if(wheelBase == null)
         {
-            Transform baseTransform = transform.Find("ui_image_wheel_base");
+            Transform baseTransform = transform.Find("ui_panel_middle/ui_image_wheel_base");
             if(baseTransform != null)
             wheelBase = baseTransform.GetComponent<RectTransform>();
         }

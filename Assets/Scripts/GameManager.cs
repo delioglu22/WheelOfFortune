@@ -50,39 +50,43 @@ public class GameManager : MonoBehaviour
 
     private void OnValidate()
     {
+        Transform canvas = GameObject.Find("Canvas")?.transform;
+        if (canvas == null)
+            return;
+
         if (leaveButton == null)
-            leaveButton = transform.Find(".../.../ui_button_leave")
+            leaveButton = canvas.Find("ui_container_wheel/ui_panel_left/ui_button_leave")
                                 ?.GetComponent<Button>();
         if (uiButtonGiveUp == null)
-            uiButtonGiveUp = transform.Find(".../.../ui_button_give_up")
+            uiButtonGiveUp = canvas.Find("ui_panel_bomb/ui_panel_bomb_bottom/ui_button_give_up")
                                     ?.GetComponent<Button>();
         if (uiButtonReviveGold == null)
-            uiButtonReviveGold = transform.Find(".../.../ui_button_revive_gold")
+            uiButtonReviveGold = canvas.Find("ui_panel_bomb/ui_panel_bomb_bottom/ui_button_revive_gold")
                                     ?.GetComponent<Button>();
         if (uiButtonReviveAd == null)
-            uiButtonReviveAd = transform.Find(".../.../ui_button_revive_ad")
+            uiButtonReviveAd = canvas.Find("ui_panel_bomb/ui_panel_bomb_bottom/ui_button_revive_ad")
                                     ?.GetComponent<Button>();
         if (uiPanelBomb == null)
-            uiPanelBomb = transform.root.Find("Canvas/ui_panel_bomb")
+            uiPanelBomb = canvas.Find("ui_panel_bomb")
                                 ?.gameObject;
-        
+
         if (safeZoneText == null)
-            safeZoneText = transform.root.Find("Canvas/ui_container_wheel/RightSection Panel/ui_panel_milestones/ui_safezone/Text (TMP)")
+            safeZoneText = canvas.Find("ui_container_wheel/ui_panel_right/ui_panel_milestones/ui_panel_safezone/ui_text_safezone_value")
                                 ?.GetComponent<TextMeshProUGUI>();
-                                
+
         if (superZoneText == null)
-            superZoneText = transform.root.Find("Canvas/ui_container_wheel/RightSection Panel/ui_panel_milestones/ui_superzone/Text (TMP)")
+            superZoneText = canvas.Find("ui_container_wheel/ui_panel_right/ui_panel_milestones/ui_panel_superzone/ui_text_superzone_value")
                                 ?.GetComponent<TextMeshProUGUI>();
 
         if (zoneBarController == null)
             zoneBarController = FindObjectOfType<ZoneBarController>();
 
         if (rewardFlyStart == null)
-            rewardFlyStart = GameObject.Find("ui_image_indicator")
+            rewardFlyStart = canvas.Find("ui_container_wheel/ui_panel_middle/ui_image_indicator")
                                 ?.GetComponent<RectTransform>();
 
         if (rewardPopTarget == null)
-            rewardPopTarget = GameObject.Find("ui_image_wheel_base")
+            rewardPopTarget = canvas.Find("ui_container_wheel/ui_panel_middle/ui_image_wheel_base")
                                 ?.GetComponent<RectTransform>();
     }
     private void Start()

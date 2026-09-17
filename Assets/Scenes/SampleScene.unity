@@ -306,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188977576}
   m_Layer: 0
-  m_Name: ui_content_zone
+  m_Name: ui_container_zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1609,7 +1609,7 @@ GameObject:
   - component: {fileID: 626031581}
   - component: {fileID: 626031580}
   m_Layer: 5
-  m_Name: ui_superzone
+  m_Name: ui_panel_superzone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3332,7 +3332,7 @@ GameObject:
   - component: {fileID: 1244353233}
   - component: {fileID: 1244353232}
   m_Layer: 5
-  m_Name: ui_safezone
+  m_Name: ui_panel_safezone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

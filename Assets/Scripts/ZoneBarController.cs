@@ -25,7 +25,7 @@ public class ZoneBarController : MonoBehaviour
     {
         if (zoneContent == null)
         {
-            Transform contentTransform = transform.Find("ui_mask_zone/ui_content_zone");
+            Transform contentTransform = transform.Find("ui_mask_zone/ui_container_zone");
             if (contentTransform != null)
             zoneContent = contentTransform.GetComponent<RectTransform>();
         }

@@ -118,13 +118,13 @@ public class GameManager : MonoBehaviour
         if (safeZoneText != null)
         {
             int nextSafeZone = (((currentZone - 1) / 5) + 1) * 5;
-            safeZoneText.text = "SAFE ZONE " + nextSafeZone;
+            safeZoneText.text = nextSafeZone.ToString();
         }
 
         if (superZoneText != null)
         {
             int nextSuperZone = (((currentZone - 1) / 30) + 1) * 30;
-            superZoneText.text = "SUPER ZONE " + nextSuperZone;
+            superZoneText.text = nextSuperZone.ToString();
         }
 
         if (currentZone % 30 == 0)

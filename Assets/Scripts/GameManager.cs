@@ -7,13 +7,11 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     [Header("UI and References")]
-    [SerializeField] private TextMeshProUGUI zoneText;
     [SerializeField] private TextMeshProUGUI safeZoneText;
     [SerializeField] private TextMeshProUGUI superZoneText;
     [SerializeField] private Button leaveButton;
     [SerializeField] private WheelController wheelController;
     [SerializeField] private ZoneBarController zoneBarController;
-    private int totalReward = 0;
 
     [Header("Wheel Data")]
     [SerializeField] private WheelData normalWheel;
@@ -114,8 +112,6 @@ public class GameManager : MonoBehaviour
 
     private void UpdateZone()
     {
-        zoneText.text = "ZONE " + currentZone;
-
         if (zoneBarController != null)
             zoneBarController.GenerateZoneBar(currentZone);
 

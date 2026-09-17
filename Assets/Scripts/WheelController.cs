@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI; 
 using DG.Tweening;
@@ -17,11 +16,7 @@ public class WheelController : MonoBehaviour
     public GameObject slicePrefab;
     public event System.Action<SliceData> OnSpinCompleted;
     [Header("UI Visuals")]
-    [SerializeField] private Image wheelBaseImage;
     [SerializeField] private Image indicatorImage;
-    [SerializeField] private Image panelZoneImage;
-    
-
 
     private void OnValidate()
     {
@@ -41,10 +36,6 @@ public class WheelController : MonoBehaviour
         if (spinButton != null)
         spinButton.onClick.AddListener(OnSpinButtonClicked);
     }
-    private void Start()
-    {
-    }
-
     public void GenerateWheel()
     {
         if (activeWheelData.wheelBaseSprite != null)

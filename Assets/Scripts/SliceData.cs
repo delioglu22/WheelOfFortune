@@ -11,7 +11,13 @@ public class SliceData
 {
     public SliceType sliceType = SliceType.Reward;
     public Sprite icon;
+    public Sprite pointsIcon;
     public int amount;
+
+    public Sprite CollectedIcon
+    {
+        get { return pointsIcon != null ? pointsIcon : icon; }
+    }
 
     public string GetAmountLabel()
     {

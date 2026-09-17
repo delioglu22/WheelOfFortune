@@ -165,20 +165,22 @@ public class GameManager : MonoBehaviour
 
     private void PlayRewardFly(SliceData landedSlice)
     {
+        Sprite collectedIcon = landedSlice.CollectedIcon;
+
         if (rewardFlyStart == null || rewardFlyPrefab == null)
         {
-            AddCollectedAmount(landedSlice.icon, landedSlice.amount);
+            AddCollectedAmount(collectedIcon, landedSlice.amount);
             return;
         }
 
-        if (!collectedItems.ContainsKey(landedSlice.icon))
-            collectedItems.Add(landedSlice.icon, 0);
+        if (!collectedItems.ContainsKey(collectedIcon))
+            collectedItems.Add(collectedIcon, 0);
 
         UpdateInventoryUI();
 
         Vector3 popPosition = rewardPopTarget != null ? rewardPopTarget.position : rewardFlyStart.position;
 
-        GameObject rewardCard = CreateRewardIcon(landedSlice, rewardFlyStart.position, 1f, "x" + landedSlice.amount.ToString());
+        GameObject rewardCard = CreateRewardIcon(landedSlice.icon, rewardFlyStart.position, 1f, landedSlice.GetAmountLabel());
         RectTransform cardTransform = rewardCard.GetComponent<RectTransform>();
 
         Sequence popSequence = DOTween.Sequence();
@@ -190,7 +192,7 @@ public class GameManager : MonoBehaviour
         popSequence.OnComplete(() =>
         {
                 Canvas.ForceUpdateCanvases();
-                SpawnRewardBurst(landedSlice, flyCount, popPosition, GetInventorySlotPosition(landedSlice.icon));
+                SpawnRewardBurst(landedSlice, flyCount, popPosition, GetInventorySlotPosition(collectedIcon));
 
                 cardTransform.DOScale(0f, rewardPopDuration)
                 .SetDelay(rewardFlyStep * flyCount)
@@ -206,7 +208,7 @@ public class GameManager : MonoBehaviour
             bool isLastIcon = i == flyCount - 1;
 
             Vector3 spreadPosition = burstPosition + (Vector3)(Random.insideUnitCircle * rewardFlySpread);
-            GameObject flyingIcon = CreateRewardIcon(landedSlice, burstPosition, rewardBurstScale, "");
+            GameObject flyingIcon = CreateRewardIcon(landedSlice.CollectedIcon, burstPosition, rewardBurstScale, "");
             RectTransform iconTransform = flyingIcon.GetComponent<RectTransform>();
 
             Sequence flySequence = DOTween.Sequence();
@@ -219,12 +221,12 @@ public class GameManager : MonoBehaviour
                     Destroy(flyingIcon);
 
                     if (isLastIcon)
-                        AddCollectedAmount(landedSlice.icon, landedSlice.amount);
+                        AddCollectedAmount(landedSlice.CollectedIcon, landedSlice.amount);
             });
         }
     }
 
-    private GameObject CreateRewardIcon(SliceData landedSlice, Vector3 position, float scale, string amountLabel)
+    private GameObject CreateRewardIcon(Sprite icon, Vector3 position, float scale, string amountLabel)
     {
         GameObject rewardIcon = Instantiate(rewardFlyPrefab, inventoryContent.root);
         RectTransform iconTransform = rewardIcon.GetComponent<RectTransform>();
@@ -233,7 +235,7 @@ public class GameManager : MonoBehaviour
         iconTransform.SetAsLastSibling();
 
         Image iconImage = rewardIcon.GetComponent<Image>();
-        if (iconImage != null) iconImage.sprite = landedSlice.icon;
+        if (iconImage != null) iconImage.sprite = icon;
 
         TextMeshProUGUI amountText = rewardIcon.GetComponentInChildren<TextMeshProUGUI>();
         if (amountText != null) amountText.text = amountLabel;

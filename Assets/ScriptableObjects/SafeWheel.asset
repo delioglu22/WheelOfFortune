@@ -14,29 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelBaseSprite: {fileID: 21300000, guid: de1d58f420bdd415483a4174ed214f20, type: 3}
   indicatorSprite: {fileID: 21300000, guid: 6e2b20aa5fa92495c8391255ad653ecf, type: 3}
-  panelZoneSprite: {fileID: 21300000, guid: 9a94074c0664a43e49657286f0345b0a, type: 3}
   slices:
   - sliceType: 0
     icon: {fileID: 21300000, guid: d4a01204571aa45f186dcb9bbdfbf423, type: 3}
-    amount: 2000
-  - sliceType: 0
-    icon: {fileID: 21300000, guid: 1b62fee957ad540c48c2a5757ac58d1b, type: 3}
-    amount: 3
-  - sliceType: 0
-    icon: {fileID: 21300000, guid: 7e4835ca59a5b488c81b295901f03133, type: 3}
-    amount: 1
+    pointsIcon: {fileID: 0}
+    amount: 2500
   - sliceType: 0
     icon: {fileID: 21300000, guid: 972a6c5a80b4f44faa31b8bcce8bab89, type: 3}
-    amount: 20
+    pointsIcon: {fileID: 0}
+    amount: 25
   - sliceType: 0
     icon: {fileID: 21300000, guid: 67f422c6ef2354157806c0c8c424de82, type: 3}
-    amount: 1
-  - sliceType: 0
-    icon: {fileID: 21300000, guid: 482d88af1a1db45efbb88fab849d504d, type: 3}
+    pointsIcon: {fileID: 21300000, guid: e0aaf42be48cb46f1962fd12bc6b3e05, type: 3}
     amount: 5
   - sliceType: 0
-    icon: {fileID: 21300000, guid: 3f8ecd5cfcf8a4cd38edaa26f84677d1, type: 3}
+    icon: {fileID: 21300000, guid: 3d46a45b76ad4465b8991f3c38aaa807, type: 3}
+    pointsIcon: {fileID: 21300000, guid: b101419aaa62547139e3e7866b1e993a, type: 3}
+    amount: 5
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: c3505e97658a54c5c85becc4a2fc7bc1, type: 3}
+    pointsIcon: {fileID: 21300000, guid: b94000097e3b449efad885055f17e56b, type: 3}
+    amount: 5
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 925b5ab37096e41f9b7d93857993ab80, type: 3}
+    pointsIcon: {fileID: 21300000, guid: 0bfd2a1e24aad4bfaa4230905bcd1d4b, type: 3}
+    amount: 5
+  - sliceType: 0
+    icon: {fileID: 21300000, guid: 1b62fee957ad540c48c2a5757ac58d1b, type: 3}
+    pointsIcon: {fileID: 0}
     amount: 1
   - sliceType: 0
-    icon: {fileID: 21300000, guid: 3d46a45b76ad4465b8991f3c38aaa807, type: 3}
-    amount: 1
+    icon: {fileID: 21300000, guid: 123332289d21e4a0fb9688422d3378b2, type: 3}
+    pointsIcon: {fileID: 0}
+    amount: 2

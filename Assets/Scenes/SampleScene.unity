@@ -3188,8 +3188,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinButton: {fileID: 945478226}
   wheelBase: {fileID: 993686631}
-  spinDuration: 3
+  spinDuration: 3.4
   spinLoops: 5
+  windUpAngle: 18
+  windUpDuration: 0.25
+  settleAngle: 5
+  settleDuration: 0.35
   activeWheelData: {fileID: 11400000, guid: 758676f0348b84bd691097f1384bf55d, type: 2}
   slicePrefab: {fileID: 6862297635475765224, guid: f583e107ed3344681ba4d0e6bbbb7856, type: 3}
   indicatorImage: {fileID: 1532709661}

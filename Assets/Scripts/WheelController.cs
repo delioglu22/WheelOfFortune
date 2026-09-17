@@ -8,8 +8,12 @@ public class WheelController : MonoBehaviour
     [SerializeField] private Button spinButton;
     [SerializeField] private RectTransform wheelBase;
     [Header("Spin Settings")]
-    [SerializeField] private float spinDuration = 3f; 
+    [SerializeField] private float spinDuration = 3f;
     [SerializeField] private int spinLoops = 5;
+    [SerializeField] private float windUpAngle = 18f;
+    [SerializeField] private float windUpDuration = 0.25f;
+    [SerializeField] private float settleAngle = 5f;
+    [SerializeField] private float settleDuration = 0.35f;
     private bool isSpinning = false;
     [Header("Data")]
     public WheelData activeWheelData;
@@ -93,10 +97,17 @@ public class WheelController : MonoBehaviour
         float spinAngle = 360f / activeWheelData.slices.Count;
 
         float targetAngle = spinAngle * randomSliceIndex;
-        float totalRotation = targetAngle - (spinLoops * 360f);
-        
-        wheelBase.DORotate(new Vector3(0, 0, totalRotation), spinDuration, RotateMode.FastBeyond360)
-        .SetEase(Ease.OutCirc).OnComplete(() =>
+        float currentAngle = wheelBase.localEulerAngles.z;
+        float totalRotation = -((spinLoops * 360f) + Mathf.Repeat(currentAngle - targetAngle, 360f));
+
+        Sequence spinSequence = DOTween.Sequence();
+        spinSequence.Append(wheelBase.DOLocalRotate(new Vector3(0, 0, windUpAngle), windUpDuration, RotateMode.LocalAxisAdd)
+        .SetEase(Ease.OutQuad));
+        spinSequence.Append(wheelBase.DOLocalRotate(new Vector3(0, 0, totalRotation - windUpAngle - settleAngle), spinDuration, RotateMode.LocalAxisAdd)
+        .SetEase(Ease.InOutQuad));
+        spinSequence.Append(wheelBase.DOLocalRotate(new Vector3(0, 0, settleAngle), settleDuration, RotateMode.LocalAxisAdd)
+        .SetEase(Ease.OutQuad));
+        spinSequence.OnComplete(() =>
         {
                 isSpinning = false;
                 spinButton.interactable = true;
@@ -105,6 +116,7 @@ public class WheelController : MonoBehaviour
                 OnSpinCompleted?.Invoke(wonSlice);
         });
     }
+
 
      
 

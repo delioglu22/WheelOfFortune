@@ -80,13 +80,7 @@ public class WheelController : MonoBehaviour
                 iconImage.sprite = data.icon;
             TextMeshProUGUI amountText = newSlice.GetComponentInChildren<TextMeshProUGUI>();
             if (amountText != null)
-            {
-                if (data.amount < 2)
-                    amountText.text = "";
-                else
-                
-                    amountText.text = "x" + data.amount.ToString();
-            }
+                amountText.text = data.sliceType == SliceType.Bomb ? "" : data.GetAmountLabel();
         }
     }
 

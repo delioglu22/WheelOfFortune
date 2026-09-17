@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3168023797254727639}
   - component: {fileID: 3602337584414611344}
   m_Layer: 5
-  m_Name: ui_prefab_inventory_item_image
+  m_Name: ui_image_inventory_item_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 2865320253795634498}
   - component: {fileID: 2402518704939035798}
   m_Layer: 5
-  m_Name: ui_prefab_inventory_item_text
+  m_Name: ui_text_inventory_item_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,9 +243,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

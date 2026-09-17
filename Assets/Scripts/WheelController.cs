@@ -14,6 +14,10 @@ public class WheelController : MonoBehaviour
     [SerializeField] private float windUpDuration = 0.25f;
     [SerializeField] private float settleAngle = 5f;
     [SerializeField] private float settleDuration = 0.35f;
+    [Header("Indicator Tick")]
+    [SerializeField] private float indicatorKickAngle = 16f;
+    [SerializeField] private float indicatorReturnDuration = 0.12f;
+    private float lastTickAngle;
     private bool isSpinning = false;
     [Header("Data")]
     public WheelData activeWheelData;
@@ -100,11 +104,13 @@ public class WheelController : MonoBehaviour
         float currentAngle = wheelBase.localEulerAngles.z;
         float totalRotation = -((spinLoops * 360f) + Mathf.Repeat(currentAngle - targetAngle, 360f));
 
+        lastTickAngle = currentAngle;
+
         Sequence spinSequence = DOTween.Sequence();
         spinSequence.Append(wheelBase.DOLocalRotate(new Vector3(0, 0, windUpAngle), windUpDuration, RotateMode.LocalAxisAdd)
         .SetEase(Ease.OutQuad));
         spinSequence.Append(wheelBase.DOLocalRotate(new Vector3(0, 0, totalRotation - windUpAngle - settleAngle), spinDuration, RotateMode.LocalAxisAdd)
-        .SetEase(Ease.InOutQuad));
+        .SetEase(Ease.InOutQuad).OnUpdate(TickIndicator));
         spinSequence.Append(wheelBase.DOLocalRotate(new Vector3(0, 0, settleAngle), settleDuration, RotateMode.LocalAxisAdd)
         .SetEase(Ease.OutQuad));
         spinSequence.OnComplete(() =>
@@ -117,6 +123,24 @@ public class WheelController : MonoBehaviour
         });
     }
 
+    private void TickIndicator()
+    {
+        if (indicatorImage == null) return;
+
+        float sliceAngle = 360f / activeWheelData.slices.Count;
+        float currentAngle = wheelBase.localEulerAngles.z;
+        float travelled = Mathf.Repeat(lastTickAngle - currentAngle, 360f);
+
+        if (travelled < sliceAngle) return;
+
+        lastTickAngle = Mathf.Repeat(lastTickAngle - sliceAngle * Mathf.Floor(travelled / sliceAngle), 360f);
+
+        RectTransform indicatorTransform = indicatorImage.rectTransform;
+        indicatorTransform.DOKill();
+        indicatorTransform.localRotation = Quaternion.Euler(0f, 0f, indicatorKickAngle);
+        indicatorTransform.DOLocalRotate(Vector3.zero, indicatorReturnDuration)
+        .SetEase(Ease.OutBack);
+    }
 
      
 
